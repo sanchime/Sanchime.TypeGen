@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	 <IncludeBuildOutput>false</IncludeBuildOutput>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<!-- source generators assemblies -->
+		<None Include="$(OutputPath)/Sanchime.TypeGen.SourceGeneration.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+		<None Include="$(OutputPath)/Sanchime.TypeGen.Abstractions.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+
+		<None Include="$(OutputPath)/Sanchime.TypeGen.Abstractions.dll" Pack="true" PackagePath="lib/netstandard2.0" Visible="true" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sanchime.TypeGen.Abstractions\Sanchime.TypeGen.Abstractions.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\Sanchime.TypeGen.SourceGeneration\Sanchime.TypeGen.SourceGeneration.csproj"  PrivateAssets="all"/>
+  </ItemGroup>
+
+</Project>
