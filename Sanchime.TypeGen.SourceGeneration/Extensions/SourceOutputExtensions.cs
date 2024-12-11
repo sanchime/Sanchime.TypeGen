@@ -53,7 +53,11 @@ internal static class SourceOutputExtensions
         string outputFileName,
         CancellationToken token = default)
     {
+
         var sourceBuilder = new SourceBuilder();
+
+        sourceBuilder.AddLine("#nullable enable");
+        sourceBuilder.AddLine("#pragma warning disable CS8618");
 
         var @namespace = typeDeclarationSyntax.GetNamespace(token);
 
